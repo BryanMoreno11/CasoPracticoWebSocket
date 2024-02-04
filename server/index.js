@@ -5,16 +5,29 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+//socket.io
+const http = require("http");
+const server = http.createServer(app);
+const io = require('socket.io')(server, {
+    cors: {
+        origin: '*',
+    }
+});
+io.on('connection', (socket) => {
+    console.log("Usuario conectado");
+    socket.on("disconnect", () => {
+        console.log("Usuario desconectado");
+    });
+    socket.on("registro", (msg) => {
+        console.log(msg);
+        io.emit("actualizacion", msg)
+    })
+
+});
 //rutas
-const peliculaRoutes = require("./Enlace a Datos/routes/peliculaRoutes");
-const ciudadRoutes = require("./Enlace a Datos/routes/ciudadRoutes");
-const complejoRoutes = require("./Enlace a Datos/routes/complejoRoutes");
-const funcionRoutes = require("./Enlace a Datos/routes/funcionRoutes");
 const usuarioRoutes = require("./Enlace a Datos/routes/usuarioRoutes");
-app.use("/api", peliculaRoutes);
-app.use("/api", ciudadRoutes);
-app.use("/api", complejoRoutes);
-app.use("/api", funcionRoutes);
+const dashboardRoutes = require("./Enlace a Datos/routes/dashboardRoutes");
 app.use("/api", usuarioRoutes);
-app.listen("3000");
+app.use("/api", dashboardRoutes);
+server.listen("3000");
 console.log("server up localhost:3000");

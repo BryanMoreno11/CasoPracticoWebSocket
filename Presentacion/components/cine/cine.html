@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="cine">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="cine.css">
 </head>
 
-<body ng-controller="cineController">
+<body>
     <header class="header">
         <div class="menu container">
             <a href="#" class="logo">Hipercine</a>
@@ -19,7 +19,7 @@
             <nav class="navbar">
                 <ul>
                     <li> <a href="../cine/cine.html">Inicio</a></li>
-                    <li> <a href="../estrenos/proxiestrenos.html">Proximos Estrenos</a></li>
+                    <li> <a href="../dashboard/dashboard.html">Dashboard</a></li>
                     <li> <a href="#">Nosotros</a></li>
                 </ul>
 
@@ -28,46 +28,122 @@
         </div>
     </header>
 
-    <section class="combobox">
-        <h2>Ciudad y Complejo</h2>
-        <select ng-model="ciudad" ng-change="changeCiudad()" name="ciudad" id="selectCiudad">
-            <option value="{{ciudad.nombre}}" ng-repeat="ciudad in ciudades">{{ciudad.nombre}}</option>
-        </select>
-
-        <select name="complejo" id="selectComplejo" ng-model="complejo" ng-change="changeComplejo()">
-            <option value="{{complejo.nombre_complejo}}" ng-repeat="complejo in complejos">{{complejo.nombre_complejo}}</option>
-        </select>
-
-    </section>
     <section class="movies container">
         <h2>Peliculas de Estreno</h2>
         <hr>
         <div class="box-container-1">
-            <div class="box-1" ng-repeat="pelicula in peliculas">
+            <div class="box-1">
                 <div class="release">Estreno</div>
                 <div class="content">
-                    <img ng-attr-id="{{'linkImagen1'+pelicula.id_pelicula}}" ng-attr-src="{{pelicula.imagen_portada}}" alt="">
-                    <h1 ng-attr-id="{{'nombrePelicula1'+pelicula.id_pelicula}}">{{pelicula.nombre_pelicula}}</h1>
-                    <script ng-attr-id="{{'precioEntrada1'+pelicula.id_pelicula}}" type="text/plain">10</script>
-                    <a href="#" class="btn-comprar" ng-click="getValores('nombrePelicula1'+pelicula.id_pelicula, 'precioEntrada1'+pelicula.id_pelicula, 'linkImagen1'+pelicula.id_pelicula)">Comprar</a>
+                    <img src="../../Imagenes/1.jpg" alt="">
+                    <script type="text/plain" id="linkImagen1">../../Imagenes/1.jpg</script>
+                    <h1 id="nombrePelicula1">Iron Man 3</h1>
+                    <script type="text/plain" id="precioEntrada1">10</script>
+                    <a href="#" class="btn-comprar" onclick="getValores('nombrePelicula1','precioEntrada1','linkImagen1')">Comprar</a>
+                </div>
+
+            </div>
+            <div class="box-1">
+                <div class="content">
+                    <div class="release">Estreno</div>
+                    <img src="../../Imagenes/2.jpg" alt="">
+                    <script type="text/plain" id="linkImagen2">../../Imagenes/2.jpg</script>
+                    <h1 id="nombrePelicula2">Thor: Love and Thunder</h1>
+                    <script type="text/plain" id="precioEntrada2">10</script>
+                    <a href="#" class="btn-comprar" onclick="getValores('nombrePelicula2','precioEntrada2','linkImagen2')">Comprar</a>
                 </div>
             </div>
+
+            <div class="box-1">
+                <div class="content">
+                    <div class="release">Estreno</div>
+                    <img src="../../Imagenes/3.jpg" alt="">
+                    <script type="text/plain" id="linkImagen3">../../Imagenes/3.jpg</script>
+                    <h1 id="nombrePelicula3">Thor: Ragnarok</h1>
+                    <script type="text/plain" id="precioEntrada3">10</script>
+                    <a href="#" class="btn-comprar" onclick="getValores('nombrePelicula3','precioEntrada3','linkImagen3')">Comprar</a>
+                </div>
+
+            </div>
+
+            <div class="box-1">
+                <div class="content">
+                    <div class="release">Estreno</div>
+                    <img src="../../Imagenes/4.jpg" alt="">
+                    <script type="text/plain" id="linkImagen4">../../Imagenes/4.jpg</script>
+                    <h1 id="nombrePelicula4">Resident Evil</h1>
+                    <script type="text/plain" id="precioEntrada4">10</script>
+                    <a href="#" class="btn-comprar" onclick="getValores('nombrePelicula4','precioEntrada4','linkImagen4')">Comprar</a>
+                </div>
+
+            </div>
+
+            <div class="box-1">
+                <div class="content">
+                    <div class="release">Estreno</div>
+                    <img src="../../Imagenes/5.jpg" alt="">
+                    <script type="text/plain" id="linkImagen5">../../Imagenes/5.jpg</script>
+                    <h1 id="nombrePelicula5">La Vieja Guarida</h1>
+                    <script type="text/plain" id="precioEntrada5">10</script>
+                    <a href="#" class="btn-comprar" onclick="getValores('nombrePelicula5','precioEntrada5','linkImagen5')">Comprar</a>
+                </div>
+
+            </div>
+
+            <div class="box-1">
+                <div class="content">
+                    <div class="release">Estreno</div>
+                    <img src="../../Imagenes/6.jpg" alt="">
+                    <script type="text/plain" id="linkImagen6">../../Imagenes/6.jpg</script>
+                    <h1 id="nombrePelicula6">Spectral</h1>
+                    <script type="text/plain" id="precioEntrada6">10</script>
+                    <a href="#" class="btn-comprar" onclick="getValores('nombrePelicula6','precioEntrada6','linkImagen6')">Comprar</a>
+                </div>
+
+            </div>
+
+            <div class="box-1">
+                <div class="content">
+                    <div class="release">Estreno</div>
+                    <img src="../../Imagenes/7.jpg" alt="">
+                    <script type="text/plain" id="linkImagen7">../../Imagenes/7.jpg</script>
+                    <h1 id="nombrePelicula7">300</h1>
+                    <script type="text/plain" id="precioEntrada7">10</script>
+                    <a href="#" class="btn-comprar" onclick="getValores('nombrePelicula7','precioEntrada7','linkImagen7')">Comprar</a>
+
+                </div>
+
+            </div>
+
+            <div class="box-1">
+                <div class="content">
+                    <div class="release">Estreno</div>
+                    <img src="../../Imagenes/8.jpg" alt="">
+                    <script type="text/plain" id="linkImagen8">../../Imagenes/8.jpg</script>
+                    <h1 id="nombrePelicula8">Project Power</h1>
+                    <script type="text/plain" id="precioEntrada8">10</script>
+                    <a href="#" class="btn-comprar" onclick="getValores('nombrePelicula8','precioEntrada8','linkImagen8')">Comprar</a>
+                </div>
+
+            </div>
+
+
         </div>
+
+
+
     </section>
 
     <footer class="footer container">
         <h3>Hipercine</h3>
         <ul>
             <li><a href="../cine/cine.html">Inicio</a></li>
-            <li><a href="../estrenos/proxiestrenos.html">Proximos Estrenos</a></li>
-            <li><a href="../login/login.component.html">Inicio de Sesion</a></li>
+            <li><a href="#">Proximos Estrenos</a></li>
+            <li><a href="#">Inicio de Sesion</a></li>
             <li><a href="#">Contacto</a></li>
         </ul>
 
     </footer>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="cine.js"></script>
 </body>
 
 </html>

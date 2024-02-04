@@ -1,0 +1,13 @@
+CREATE DATABASE caso_practico;
+
+CREATE TABLE usuario (
+  id_usuario SERIAL PRIMARY KEY,
+  nombre VARCHAR(150) NOT NULL,
+  apellido VARCHAR(150) NOT NULL,
+  cedula VARCHAR(10) NOT NULL,
+  telefono VARCHAR(10) NOT NULL,
+  correo VARCHAR NOT NULL,
+  password VARCHAR NOT NULL,
+  direccion VARCHAR NOT NULL,
+  fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
